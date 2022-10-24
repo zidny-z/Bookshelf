@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Bookshelf | Buku Bacaan Anda</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="index.js"></script>
 	</head>
 
 	<body>
@@ -20,14 +19,17 @@
 						<a href="#sudahDibaca">Buku Selesai Dibaca</a>
 						<a href="#belumDibaca">Buku Belum Dibaca</a>
 						<a href="#tambah">Tambah Data</a>
-						<div class="search">
-							<input
-								id="searchBookTitle"
-								type="text"
-								placeholder="Cari buku..."
-							/>
-							<button id="searchSubmit" type="submit">Cari</button>
-						</div>
+						<form id="searchSubmit">
+							<div class="search">
+								<label for="searchBookTitle"></label>
+								<input
+									id="searchBookTitle"
+									type="text"
+									placeholder="Cari berdasarkan judul"
+								/>
+								<button type="submit">Cari</button>
+							</div>
+						</form>
 						<a href="#" id="hamburgerBtn" onclick="navbarClass()"
 							>&#9776;</a
 						>
@@ -39,47 +41,47 @@
 			<div id="content">
 				<section class="bacaan card">
 					<article id="sudahDibaca">
-						<h3 id="sudahBaca">Buku sudah dibaca</h3>
-						<table>
+						<h3 id="sudahBaca">Buku Selesai Dibaca</h3>
+						<table id="tabelSudahBaca">
 							<tr>
 								<th>Judul</th>
 								<th>Penulis</th>
 								<th>Tahun</th>
 								<th>Aksi</th>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>Petualangan Zidny Membangun Negeri</td>
 								<td>Zidny Zainul</td>
 								<td>2022</td>
 								<td class="aksi">
 									<button class="grey">Belum Dibaca</button>
-									<button>Update</button>
+
 									<button class="red">Hapus</button>
 								</td>
-							</tr>
+							</tr> -->
 						</table>
 					</article>
 				</section>
 				<section class="bacaan card">
 					<article id="belumDibaca">
-						<h3 id="belumBaca">Buku belum dibaca</h3>
-						<table>
+						<h3 id="belumBaca">Buku Belum Dibaca</h3>
+						<table id="tabelBelumBaca">
 							<tr>
 								<th>Judul</th>
 								<th>Penulis</th>
 								<th>Tahun</th>
 								<th>Aksi</th>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>Petualangan Zidny</td>
 								<td>Zidny</td>
 								<td>2022</td>
 								<td class="aksi">
 									<button class="grey">Sudah Dibaca</button>
-									<button>Update</button>
+
 									<button class="red">Hapus</button>
 								</td>
-							</tr>
+							</tr> -->
 						</table>
 					</article>
 				</section>
@@ -89,22 +91,38 @@
 						<form id="inputBook">
 							<div class="input">
 								<label for="inputBookTitle">Judul</label>
-								<input id="inputBookTitle" type="text" required />
+								<input
+									id="inputBookTitle"
+									placeholder="Judul Buku"
+									type="text"
+									required
+								/>
 							</div>
 							<div class="input">
 								<label for="inputBookAuthor">Penulis</label>
-								<input id="inputBookAuthor" type="text" required />
+								<input
+									id="inputBookAuthor"
+									placeholder="Nama Penulis"
+									type="text"
+									required
+								/>
 							</div>
 							<div class="input">
 								<label for="inputBookYear">Tahun</label>
-								<input id="inputBookYear" type="number" required />
+								<input
+									id="inputBookYear"
+									placeholder="Tahun Terbit"
+									type="number"
+									required
+								/>
 							</div>
 							<div class="input_inline">
 								<label for="inputBookIsComplete">Selesai dibaca</label>
 								<input id="inputBookIsComplete" type="checkbox" />
 							</div>
 							<button id="bookSubmit" type="submit">
-								Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+								Masukkan Buku ke rak
+								<!-- <span>Belum selesai dibaca</span> -->
 							</button>
 						</form>
 					</article>
@@ -122,5 +140,6 @@
 				>
 			</p>
 		</footer>
+		<script src="main.js"></script>
 	</body>
 </html>
