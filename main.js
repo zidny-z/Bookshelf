@@ -12,7 +12,8 @@ function navbarClass() {
  
 const localStorageKey = "DATA_BUKU";
 dataGet = JSON.parse(localStorage.getItem(localStorageKey));
-if (dataGet.length != 0) {
+// if (dataGet.length != 0) {
+if (dataGet !== null ) {
 	data = dataGet
 } else {
 	data = []
