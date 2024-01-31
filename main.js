@@ -9,14 +9,14 @@ function navbarClass() {
 }
 
 // main js CRUS DOM
- 
+
 const localStorageKey = "DATA_BUKU";
 dataGet = JSON.parse(localStorage.getItem(localStorageKey));
 // if (dataGet.length != 0) {
-if (dataGet !== null ) {
-	data = dataGet
+if (dataGet !== null) {
+	data = dataGet;
 } else {
-	data = []
+	data = [];
 }
 
 localStorage.setItem(localStorageKey, JSON.stringify(data));
@@ -28,7 +28,7 @@ let domSelesai = document.querySelector("#inputBookIsComplete");
 let domBlumBaca = document.querySelector("#tabelBelumBaca");
 let domSudahBaca = document.querySelector("#tabelSudahBaca");
 bacaData();
- 
+
 function tambahData() {
 	const dataRow = {
 		id: +new Date(),
@@ -39,7 +39,7 @@ function tambahData() {
 	};
 	data.push(dataRow);
 }
- 
+
 function clearTable() {
 	domBlumBaca.innerHTML = `<tr><th>Judul</th>
 							<th>Penulis</th>
@@ -52,7 +52,7 @@ function clearTable() {
 							<th>Aksi</th>
 						</tr>`;
 }
- 
+
 function bacaData() {
 	clearTable();
 	dataGet = JSON.parse(localStorage.getItem(localStorageKey));
@@ -61,9 +61,9 @@ function bacaData() {
 		console.log("data kosong");
 	} else {
 		dataBlum = dataGet.filter(dataGet => dataGet["isComplete"] == false);
- 
+
 		dataTerbaca = dataGet.filter(dataGet => dataGet["isComplete"] == true);
- 
+
 		if (dataBlum != null) {
 			let outputBlum = "";
 			for (var i = 0; i < dataBlum.length; i++) {
@@ -75,7 +75,7 @@ function bacaData() {
 			}
 			domBlumBaca.innerHTML += outputBlum;
 		}
- 
+
 		if (dataTerbaca != null) {
 			let outputBaca = "";
 			for (var i = 0; i < dataTerbaca.length; i++) {
@@ -89,7 +89,7 @@ function bacaData() {
 		}
 	}
 }
- 
+
 // button isi form
 document.getElementById("inputBook").addEventListener("submit", e => {
 	e.preventDefault();
@@ -97,7 +97,7 @@ document.getElementById("inputBook").addEventListener("submit", e => {
 	localStorage.setItem(localStorageKey, JSON.stringify(data));
 	bacaData();
 });
- 
+
 function hapusData(x) {
 	let confirmation = confirm("Anda yakin ingin menghapus data tersebut?");
 	if (confirmation == true) {
@@ -109,11 +109,11 @@ function hapusData(x) {
 			return value.id != x;
 		});
 		localStorage.setItem(localStorageKey, JSON.stringify(dataGet));
- 
+
 		bacaData();
 	}
 }
- 
+
 function Sudahkan(x) {
 	dataGet = JSON.parse(localStorage.getItem(localStorageKey));
 	dataHasil = dataGet.filter(function (value) {
@@ -126,7 +126,7 @@ function Sudahkan(x) {
 	localStorage.setItem(localStorageKey, JSON.stringify(dataGet));
 	bacaData();
 }
- 
+
 function Belumkan(x) {
 	dataGet = JSON.parse(localStorage.getItem(localStorageKey));
 	dataHasil = dataGet.filter(function (value) {
@@ -139,13 +139,13 @@ function Belumkan(x) {
 	localStorage.setItem(localStorageKey, JSON.stringify(dataGet));
 	bacaData();
 }
- 
+
 // find manual dah susah bgt pake bacaData()
 document.getElementById("searchSubmit").addEventListener("submit", e => {
 	e.preventDefault();
- 
+
 	let inputan = document.getElementById("searchBookTitle").value;
- 
+
 	dataGet = JSON.parse(localStorage.getItem(localStorageKey));
 	dataGet = dataGet.filter(function (value) {
 		return value.title.toLowerCase().includes(inputan.toLowerCase());
@@ -157,7 +157,7 @@ document.getElementById("searchSubmit").addEventListener("submit", e => {
 	} else {
 		dataBlum = dataGet.filter(dataGet => dataGet["isComplete"] == false);
 		dataTerbaca = dataGet.filter(dataGet => dataGet["isComplete"] == true);
- 
+
 		if (dataBlum != null) {
 			let outputBlum = "";
 			for (var i = 0; i < dataBlum.length; i++) {
@@ -169,7 +169,7 @@ document.getElementById("searchSubmit").addEventListener("submit", e => {
 			}
 			domBlumBaca.innerHTML += outputBlum;
 		}
- 
+
 		if (dataTerbaca != null) {
 			let outputBaca = "";
 			for (var i = 0; i < dataTerbaca.length; i++) {
