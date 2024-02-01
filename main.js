@@ -34,7 +34,7 @@ function tambahData() {
 		id: +new Date(),
 		title: domJudul.value,
 		author: domPenulis.value,
-		year: domTahun.value,
+		year: parseInt(domTahun.value),
 		isComplete: domSelesai.checked,
 	};
 	data.push(dataRow);
